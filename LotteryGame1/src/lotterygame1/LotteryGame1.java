@@ -18,52 +18,136 @@ public class LotteryGame1 {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Lottery Game Example");
-        
-        int selectionCount = 24;
+        int selectionCount = 18;
         int lotterySelection[] = new int[selectionCount];
-        int selectionBound = 63;
+        int selectionBound = 64;
         Random seed = new Random();
         Random rv1 = new Random(selectionBound);
-        rv1.setSeed(seed.nextInt(100000));
+        Random bonus = new Random(selectionBound);
+        int take_3 = 1000;
+        int take_4 = 10000;
+        int take_5 = 100000;
+                
+        //rv1.setSeed(seed.nextInt(100000));
         for(int i = 0; i < selectionCount; i++) {
-            lotterySelection[i] = rv1.nextInt(selectionBound) + 1;
-            System.out.print(lotterySelection[i] + " ");
-        }
+            boolean found = true;
+           while (found ) {
+             int num = rv1.nextInt(selectionBound) + 1;
+             found = false;
+           
+             for (int j = 0; j < 1; j++){
+               if (lotterySelection[j]== num) {
+                   found = true;
+                   break;
+               }
+             }
+               if (!found) {
+                 lotterySelection[i] = num;
+               }
+             }
+               
+             System.out.print(lotterySelection[i] + " ");
+            }
+             System.out.println();
+ 
+        
+        int take3[] = new int[3];
+        int take4[] = new int[4];
+        int take5[] = new int[5];
+        
+        
+        
+      
+        
+        for(int i = 0; i < 3; i++) {
+           boolean found = true;
+           while (found ) {
+             int num = rv1.nextInt(selectionBound) + 1;
+             found = false;
+           
+             for (int j = 0; j < 1; j++){
+               if (lotterySelection[j]== num) {
+                   found = true;
+                   break;
+               }
+             }
+               if (!found) {
+                 lotterySelection[i] = num;
+               }
+             }
+               
+             System.out.print(lotterySelection[i] + " ");
+            }
         System.out.println();
         
-        int take3[] = new int[4];
-        int take4[] = new int[5];
-        int take5[] = new int[6];
-        
-        
-        
-        Random rv2 = new Random(selectionBound);
-        rv2.setSeed(seed.nextInt(100000));
-        
+    
+        rv1.setSeed(seed.nextInt(100000));
         for(int i = 0; i < 4; i++) {
-            take3[i] = rv2.nextInt(selectionBound) + 1;
-            System.out.print(take3[i] + " ");
-        }
+            boolean found = true;
+           while (found ) {
+             int num = rv1.nextInt(selectionBound) + 1;
+             found = false;
+           
+             for (int j = 0; j < 1; j++){
+               if (lotterySelection[j]== num) {
+                   found = true;
+                   break;
+               }
+             }
+               if (!found) {
+                 lotterySelection[i] = num;
+               }
+             }
+               
+             System.out.print(lotterySelection[i] + " ");
+            }
+        
         System.out.println();
         
-        Random rv3 = new Random(selectionBound);
-        rv3.setSeed(seed.nextInt(100000));
+        
         for(int i = 0; i < 5; i++) {
-            take4[i] = rv3.nextInt(selectionBound) + 1;
-            System.out.print(take4[i] + " ");
-        }
+           boolean found = true;
+           while (found ) {
+             int num = rv1.nextInt(selectionBound) + 1;
+             found = false;
+           
+             for (int j = 0; j < 1; j++){
+               if (lotterySelection[j]== num) {
+                   found = true;
+                   break;
+               }
+             }
+               if (!found) {
+                 lotterySelection[i] = num;
+               }
+             }
+               
+             System.out.print(lotterySelection[i] + " ");
+            }
         System.out.println();
         
-        Random rv4 = new Random(selectionBound);
-        rv4.setSeed(seed.nextInt(100000));
-        for(int i = 0; i < 6; i++) {
-            take5[i] = rv4.nextInt(selectionBound) + 1;
-            System.out.print(take5[i] + " ");
-        }
-        System.out.println();
+        int matches = 0;
+        for(int i = 0; i < take_3.length; i++) {
+            for (int j = 0; j < lotterySelection.length; j++) {
+                if (take_3[i] == lotterySelection[j]) {
+               matches++;
+               break;
+           }
+          }
+        } if(matches == 3) {
+            prize = take_3;
+            if (bonus =  ) {
+               prize *= 10;
+            }  
+            System.out.println("Congrats you matched " + matches + " and you won " + take_3);
+            
+        } else 
+         System.out.println("Sorry you lost");
+      }
+    
+        
        
-        
-        
+             
     }
     
-}
+
